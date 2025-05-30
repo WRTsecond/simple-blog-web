@@ -2,9 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/edit-post.css')}}">
+    <title>Edit Your Post</title>
 </head>
 <body>
+    <div class="edit-post">
     <h1>Edit Post</h1>
     <form action="edit-post{{$post->id}}" method="POST">
         @csrf
@@ -13,5 +15,6 @@
         <textarea name="content">{{$post->content}}</textarea>
         <button>Save</button>
     </form>
+    </div>
 </body>
 </html>

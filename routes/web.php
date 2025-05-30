@@ -8,12 +8,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
 Route::get('/', function () {
-    $posts = [];
-    if (auth()->check()) {
-        $posts = auth()->user()->akunPosts()->latest()->get();
-    }
+    // If you want to get posts for the authenticated user, you can use the following code:
+    # $posts = [];
+    # if (auth()->check()) {
+    #     $posts = auth()->user()->akunPosts()->latest()->get();
+    # }
+
     // Alternatively, you can use the following line if you want to get all posts by the authenticated user:
     // $posts = Post::where('user_id', auth()->id())->get();
+    // return view('welcome', ['posts' => $posts]);
+
+    $posts = Post::latest()->get();
     return view('welcome', ['posts' => $posts]);
 });
 
